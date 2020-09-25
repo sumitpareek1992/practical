@@ -1,0 +1,62 @@
+{% load static %}
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <title>Base</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<nav class="navbar navbar-default navbar-stati  c-top">
+    <div class="container">
+        <ul class="nav navbar-nav">
+            <li><a class="navbar-brand" href="{% url 'home' %}">Home</a></li>
+
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            {% block content %}
+            <li><a href="{% url 'index' %}"><span class="glyphicon glyphicon-user"></span> Add Student</a></li>
+
+        </ul>
+    </div>
+</nav>
+<div class="container">
+
+    <table>
+        <thead>
+        <tr>
+            <th scope="col">Student Name</th>
+            <th scope="col">Physics Marks</th>
+            <th scope="col">Chmestry Marks</th>
+            <th scope="col">Mathemetic Marks</th>
+            <th scope="col">English Marks</th>
+            <th scope="col">Computer Marks</th>
+            <th scope="col">Present Number</th>
+            <th scope="col">Previous number</th>
+
+        </tr>
+        </thead>
+        {% for obj in data %}
+        <tbody>
+            <tr>
+                <td>{{obj.name}}</td>
+                <td>{{obj.physics}}</td>
+                <td>{{obj.chemistry}}</td>
+                <td>{{obj.mathematics}}</td>
+                <td>{{obj.english}}</td>
+                <td>{{obj.computer}}</td>
+                <td>{{obj.parsent_no}}</td>
+                <td>{{obj.previous_no}}</td>
+
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+
+</div>
+{% endblock %}
+</body>
+</html>
